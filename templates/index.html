@@ -1,0 +1,83 @@
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<!-- <link rel="stylesheet" href="./style.css"> -->
+<link rel='stylesheet' href = "{{ url_for('static', filename='css/main.css') }}">
+<link rel='icon' href= "{{ url_for('static', filename='icon.png') }}" type='image/x-icon'>
+
+</head>
+<!-- <body style="background-image: url({{ url_for('static', filename='bg.jpg') }});background-size: cover;background-repeat: no-repeat;"> -->
+<body>
+<!-- partial:index.partial.html -->
+<!-- Canvas -->
+<canvas class="orb-canvas"></canvas>
+<!-- Overlay -->
+<div class="overlay">
+  <!-- Overlay inner wrapper -->
+
+  <div class="overlay__inner">
+    <!-- Title -->
+    <h1 class="overlay__title">
+      <span class="textgradient">Cringe</span><span class='shorts_text'>Shorts</span>
+    </h1>
+    <!-- Description -->
+    <p class="overlay__description">
+    </p>
+
+
+    <!-- Buttons -->
+      <!-- 
+      <button class="overlay__btn overlay__btn--colors">
+        <span>Randomise Colors</span>
+        <span class="overlay__btn-emoji">🎨</span>
+      </button> -->
+      
+    </div>
+    
+    <div class='form_div'>
+    <form  method='post' class='main_form'>
+        <input class='input_url' required type='text' name='url_from_user' id='url_from_user'  placeholder='Input URL'>
+        <input type='submit' class='form_button' value='Shorten URl'>
+    </form>
+    </div>
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class='short_url_div'>
+                        <h4 class=short_url_text>Shorted link:</h4>
+                        <h4 class="shorted_redirect_url">{{ message }}</h4>
+                    </div>
+                    <div>
+                      <button id="copyButton" class='copy_button' >Copy</button>
+                    </div>
+
+
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+    
+  
+                <div class='cridits'>
+
+                  Created by <a href="https://github.com/MrTimoxaYT" class='github-url'>MrTimoxaYT</a>
+              
+                </div>                
+
+    </div>
+
+
+
+
+</div>
+<!-- SCRIPTS -->
+<script type="module" src= "{{ url_for('static', filename='js/copy.js') }}"></script>
+<!-- partial 
+  <script type="module" src= "{{ url_for('static', filename='js/main.js') }}"></script>
+-->
+</body>
+</html>

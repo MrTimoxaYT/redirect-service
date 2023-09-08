@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Lato:400,300italic,300,400italic,700,900' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href = "{{ url_for('static', filename='css/login.css') }}">
+<link rel='icon' href= "{{ url_for('static', filename='icon.png') }}" type='image/x-icon'>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- A recreation of the Discord login form  https://discordapp.com/login -->
+
+<div class="auth-wrap-background">
+  <div class="auth-center">
+    <div class="auth-blur auth-size">
+      <div class="auth-wrap-background"></div>
+    </div>
+  </div>
+
+  <form  method='post'>
+    <div class="auth-center">
+      <div class="auth__inner auth-size">
+        <div class="auth__sidebar auth__inner__section">
+          <div class="auth__form auth__inner__section">
+            
+            <div class="form">
+              <h1 class="form__title">Only for Admins</h1>
+
+              <label for="" class="form__label"></label>
+              <span class="form__label__text">Login</span>
+              <input type="text" class="form__input_login" id='form__input_login' name='form__input_login'/>
+              <div class="form__input-border"></div>
+
+              <label for="" class="form__label__text">Password</label>
+              <span class="form__label__text"></span>
+              <input type="password" class="form__input_pass" id='form__input_pass' name='form__input_pass'/>
+              <div class="form__input-border"></div>
+
+              {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                  {% for message in messages %}
+                  <span class='error_mess'>{{ message }}</span>
+
+                  {% endfor %}
+              {% endif %}
+              {% endwith %}
+
+
+              <input class="button" type='submit' value="Login">
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- 
+
+
+.auth-wrap-background
+
+	.auth-center
+		.auth-blur.auth-size
+			.auth-wrap-background
+	
+	.auth-center
+		.auth__inner.auth-size
+			.auth__sidebar.auth__inner__section
+		
+			.auth__form.auth__inner__section
+				.form
+					h1.form__title Welcome back
+		
+					label.form__label
+						span.form__label__text Email
+						input.form__input
+						.form__input-border
+						
+					label.form__label
+						span.form__label__text Username
+						input.form__input
+						.form__input-border
+					
+					button.button Login
+					
+					//- .form__meta
+					//- 	span Need an account?
+					//- 	a(href="") Register
+					
+					
+ -->
+<!-- partial -->
+  
+</body>
+</html>
